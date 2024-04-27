@@ -1,0 +1,17 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+#table-body tr:nth-child(even) {
+    background-color: #bcc0c4; /* Grigio chiaro per le righe pari */
+}
+#table-body tr:nth-child(odd) {
+    background-color: #ffffff; /* Bianco per le righe dispari */
+}
+#table-body tr:hover {
+    background-color: #ff0000; /* Colore più chiaro per l'hover */
+}
+.btn-icon {
+    width: 30px; /* Larghezza massima per i bottoni */
+    height: 30px;
+}
