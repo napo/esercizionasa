@@ -2,7 +2,7 @@ const oggetti = ["fiammiferi", "cibo concentrato", "50 metri di corda di nylon",
 "unità di riscaldamento a celle solari","due pistole calibro 45","latte in polvere","mappa stellare","canotto auto-gonfiante di salvataggio","bussola magnetica","25 litri di acqua","razzi e luci di segnalazione","valigetta del pronto soccorso","ricetrasmittente alimentata dall’energia solare","bombole di ossigeno"];
 
 function initializeTable() {
-    const tbody = document.getElementById('table-body');
+    const tbody = document.getElementById('screenshot-table');
     tbody.innerHTML = '';
     oggetti.forEach((oggetto, index) => {
         const row = tbody.insertRow();
@@ -19,7 +19,7 @@ function initializeTable() {
         cellObject.addEventListener('dragstart', handleDragStart);
         cellObject.addEventListener('dragover', handleDragOver);
         cellObject.addEventListener('drop', handleDrop);
-
+        cellMove.classList.add('noprint'); // Assicurati che la cella con i bottoni sia esclusa        
         cellMove.innerHTML = `<button class="btn btn-icon btn-secondary"><i class="fas fa-sort-up"></i></button>
                               <button class="btn btn-icon btn-secondary"><i class="fas fa-sort-down"></i></button>`;
         cellMove.firstChild.onclick = () => moveItem(index, 'up');
@@ -62,6 +62,21 @@ function moveItem(index, direction) {
         [oggetti[index], oggetti[index + 1]] = [oggetti[index + 1], oggetti[index]];
     }
     initializeTable();
+}
+
+function takeScreenshot() {
+    const table = document.getElementById('screenshot-table');
+    html2canvas(table, {
+        onclone: (clonedDoc) => {
+            clonedDoc.querySelectorAll('.noprint').forEach(el => el.style.display = 'none');
+        }
+    }).then(canvas => {
+        const dataURL = canvas.toDataURL();
+        const link = document.createElement('a');
+        link.download = 'screenshot-tabella.png';
+        link.href = dataURL;
+        link.click();
+    });
 }
 
 window.onload = initializeTable;

@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <limk rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
@@ -40,13 +41,14 @@
                     <tr>
                         <th>#</th>
                         <th>oggetto</th>
-                        <th></th>
+                        <th class="noprint">&nbsp;</th>
                     </tr>
                 </thead>
-                <tbody id="table-body">
+                <tbody id="screenshot-table">
                     <!-- Le righe verranno inserite qui tramite JavaScript -->
                 </tbody>
             </table>
+            <button onclick="takeScreenshot()" class="btn btn-secondary mt-4">salva l'immagine della tabella</button>
             </div>
     </div>
 
