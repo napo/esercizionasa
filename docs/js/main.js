@@ -1,6 +1,4 @@
-const oggetti = ["fiammiferi", "cibo concentrato", "50 metri di corda di nylon", "paracadute di seta",
-"unità di riscaldamento a celle solari","due pistole calibro 45","latte in polvere","mappa stellare","canotto auto-gonfiante di salvataggio","bussola magnetica","25 litri di acqua","razzi e luci di segnalazione","valigetta del pronto soccorso","ricetrasmittente alimentata dall’energia solare","bombole di ossigeno"];
-
+// prima di questa importa config.js
 function initializeTable() {
     const tbody = document.getElementById('screenshot-table');
     tbody.innerHTML = '';
